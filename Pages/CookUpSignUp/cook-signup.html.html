@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up as a Cook - Mama Meals</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --orange: #FF6B35;
+            --green: #4CAF50;
+            --light-green: #E8F5E9;
+            --dark-green: #2E7D32;
+            --white: #FFFFFF;
+            --light-gray: #F8F9FA;
+            --dark-gray: #333333;
+            --medium-gray: #666666;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-gray);
+            line-height: 1.6;
+            background-color: var(--white);
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--orange);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .btn:hover {
+            background-color: #e05a2a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        /* Header */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 15px 0;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--orange);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 8px;
+            color: var(--green);
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(255,107,53,0.05) 0%, rgba(76,175,80,0.05) 100%);
+            padding: 100px 0 60px;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            color: var(--dark-gray);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            color: var(--medium-gray);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Cook Section */
+        .cook-section {
+            padding: 60px 0;
+            background-color: var(--white);
+        }
+        
+        .section-content {
+            display: flex;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .form-container {
+            flex: 1;
+            background: var(--white);
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark-gray);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+        }
+        
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+        
+        .benefits-list {
+            flex: 1;
+        }
+        
+        .benefits-list h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--dark-gray);
+        }
+        
+        .benefit-item {
+            display: flex;
+            margin-bottom: 20px;
+            gap: 15px;
+        }
+        
+        .benefit-icon {
+            color: var(--green);
+            font-size: 24px;
+            min-width: 24px;
+        }
+        
+        /* Kenyan Cook Illustration */
+        .cook-illustration {
+            text-align: center;
+            margin: 40px 0;
+        }
+        
+        .cook-illustration img {
+            max-width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-links {
+            margin-bottom: 15px;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 14px;
+        }
+        
+        .footer-links a:hover {
+            color: var(--orange);
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .section-content {
+                flex-direction: column;
+            }
+            
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">
+                <i class="fas fa-utensils"></i>
+                Mama Meals
+            </a>
+            <a href="index.html" class="btn">Back to Home</a>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container">
+            <h1>Become a Mama Meals Cook</h1>
+            <p>Share your authentic Kenyan recipes, set your own hours, and earn income from your kitchen.</p>
+        </div>
+    </section>
+
+    <!-- Cook Section -->
+    <section class="cook-section">
+        <div class="container">
+            <div class="section-content">
+                <!-- Sign Up Form -->
+                <div class="form-container">
+                    <h3>Join Our Community of Cooks</h3>
+                    <form id="cookSignupForm">
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" placeholder="+254 7XX XXX XXX" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email (Optional)</label>
+                            <input type="email" id="email">
+                        </div>
+                        <div class="form-group">
+                            <label for="location">Neighborhood / Area</label>
+                            <input type="text" id="location" placeholder="e.g., Eastleigh, Kibera, Westlands" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="specialty">Specialty Dish</label>
+                            <input type="text" id="specialty" placeholder="e.g., Ugali & Sukuma, Pilau, Mandazi" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="experience">Cooking Experience</label>
+                            <select id="experience" required>
+                                <option value="">Select</option>
+                                <option value="1">Less than 1 year</option>
+                                <option value="2">1-3 years</option>
+                                <option value="3">3+ years</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Why do you want to join Mama Meals?</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Submit Application</button>
+                    </form>
+                </div>
+
+                <!-- Benefits -->
+                <div class="benefits-list">
+                    <h3>Why Cooks Love Mama Meals</h3>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle benefit-icon"></i>
+                        <div><strong>Flexible Hours</strong> – Cook when it suits you.</div>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle benefit-icon"></i>
+                        <div><strong>Weekly Payments</strong> – Get paid every Friday via M-Pesa.</div>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle benefit-icon"></i>
+                        <div><strong>Free Training</strong> – Learn food safety & packaging.</div>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fas fa-check-circle benefit-icon"></i>
+                        <div><strong>Grow Your Brand</strong> – Build a loyal customer base.</div>
+                    </div>
+
+                    <!-- Kenyan Cook Image Placeholder -->
+                    <div class="cook-illustration">
+                        <img 
+                            src="https://placehold.co/500x350/E8F5E9/2E7D32?text=Kenyan+Mama+Cooking+Pilau" 
+                            alt="Kenyan cook preparing traditional meal">
+                        <p style="margin-top: 10px; font-size: 0.9rem; color: var(--medium-gray);">
+                            Real Mama Meals cooks in Nairobi
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms</a>
+            </div>
+            <p>&copy; 2023 Mama Meals. Empowering local cooks across Kenya.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('cookSignupForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you! Your application has been submitted. We’ll contact you within 48 hours.');
+            // In real app: send to backend (PHP, Firebase, etc.)
+        });
+    </script>
+</body>
+</html>
