@@ -1,0 +1,909 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <title>Mama Meals Home page</title>
+    <link rel="stylesheet" href="./style.css">
+
+  </head>
+    
+  <body>
+  <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mama Meals - Local Food Delivery in Kenya</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --orange: #FF6B35;
+            --green: #4CAF50;
+            --light-green: #E8F5E9;
+            --dark-green: #2E7D32;
+            --white: #FFFFFF;
+            --light-gray: #F8F9FA;
+            --dark-gray: #333333;
+            --medium-gray: #666666;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark-gray);
+            line-height: 1.6;
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--orange);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .btn:hover {
+            background-color: #e05a2a;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .btn-green {
+            background-color: var(--green);
+        }
+        
+        .btn-green:hover {
+            background-color: var(--dark-green);
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--orange);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo i {
+            margin-right: 8px;
+            color: var(--green);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: var(--dark-gray);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: var(--orange);
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--dark-gray);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(255,107,53,0.1) 0%, rgba(76,175,80,0.1) 100%);
+            padding: 160px 0 100px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            max-width: 600px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--dark-gray);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: var(--medium-gray);
+        }
+        
+        .hero-illustration {
+            position: absolute;
+            right: -50px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 45%;
+            max-width: 500px;
+            z-index: 1;
+        }
+        
+        /* Benefits Section */
+        .benefits {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--dark-gray);
+        }
+        
+        .section-title p {
+            color: var(--medium-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .benefit-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .benefit-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--light-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--green);
+            font-size: 30px;
+        }
+        
+        .benefit-card h3 {
+            margin-bottom: 15px;
+            color: var(--dark-gray);
+        }
+        
+        /* How It Works */
+        .how-it-works {
+            padding: 80px 0;
+            background-color: var(--light-gray);
+        }
+        
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .steps::before {
+            content: "";
+            position: absolute;
+            top: 60px;
+            left: 50px;
+            right: 50px;
+            height: 3px;
+            background: var(--orange);
+            z-index: 1;
+        }
+        
+        .step {
+            text-align: center;
+            width: 30%;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: var(--orange);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-weight: 700;
+            font-size: 20px;
+        }
+        
+        .step h3 {
+            margin-bottom: 15px;
+            color: var(--dark-gray);
+        }
+        
+        /* Cooks & Riders */
+        .cooks-riders {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        
+        .cooks-riders-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        
+        .role-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--orange);
+        }
+        
+        .role-card.green-border {
+            border-top-color: var(--green);
+        }
+        
+        .role-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--orange);
+        }
+        
+        .role-card.green-border .role-icon {
+            color: var(--green);
+        }
+        
+        .role-card h3 {
+            margin-bottom: 15px;
+            color: var(--dark-gray);
+        }
+        
+        /* About Us */
+        .about {
+            padding: 80px 0;
+            background-color: var(--light-green);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark-gray);
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            color: var(--medium-gray);
+        }
+        
+        .about-icons {
+            display: flex;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        
+        .icon-box {
+            background: var(--white);
+            width: 100px;
+            height: 100px;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .icon-box i {
+            font-size: 30px;
+            color: var(--green);
+            margin-bottom: 10px;
+        }
+        
+        .icon-box p {
+            font-size: 14px;
+            color: var(--dark-gray);
+            margin: 0;
+        }
+        
+        .about-illustration {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        
+        .illustration {
+            width: 100%;
+            max-width: 400px;
+        }
+        
+        /* Contact */
+        .contact {
+            padding: 80px 0;
+            background-color: var(--white);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 50px;
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 20px;
+            color: var(--dark-gray);
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        
+        .contact-item i {
+            color: var(--orange);
+            margin-right: 15px;
+            font-size: 20px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--light-gray);
+            color: var(--dark-gray);
+            transition: all 0.3s;
+        }
+        
+        .social-icons a:hover {
+            background: var(--orange);
+            color: var(--white);
+        }
+        
+        .contact-form .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .contact-form label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--dark-gray);
+        }
+        
+        .contact-form input,
+        .contact-form select,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+        }
+        
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark-gray);
+            color: var(--white);
+            padding: 30px 0;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .footer-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--orange);
+        }
+        
+        .copyright {
+            font-size: 14px;
+            color: #aaa;
+            margin-top: 20px;
+            text-align: center;
+            width: 100%;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .steps::before {
+                display: none;
+            }
+            
+            .step {
+                width: 100%;
+                margin-bottom: 40px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                background: var(--white);
+                width: 100%;
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                transform: translateY(-150%);
+                transition: transform 0.3s ease;
+            }
+            
+            nav.active {
+                transform: translateY(0);
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .hero {
+                padding: 140px 0 80px;
+            }
+            
+            .hero-illustration {
+                display: none;
+            }
+            
+            .hero-content {
+                text-align: center;
+                max-width: 100%;
+            }
+            
+            .hero h1 {
+                font-size: 2.3rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 14px;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .copyright {
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">
+                <img src="https://raw.githubusercontent.com/jokwir/Mama-Meals/main/Images/Mama%20meals%20logo.png" alt="Mama Meals Logo">
+                Mama Meals
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#cooks-riders">For Cooks & Riders</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#" class="btn">Sign Up</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Bringing local meals to your doorstep</h1>
+                <p>Discover authentic Kenyan home-cooked meals from local cooks in your neighborhood. Order with a tap and enjoy delicious food delivered fast.</p>
+                <a href="#" class="btn">Order Now</a>
+            </div>
+        </div>
+        <div class="hero-illustration">
+            <!-- Food illustration would go here -->
+            <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="250" cy="250" r="200" fill="#FF6B35" opacity="0.1"/>
+                <path d="M150 200 Q250 100 350 200 Q300 300 250 350 Q200 300 150 200" fill="#4CAF50" opacity="0.2"/>
+                <circle cx="200" cy="220" r="30" fill="#FF6B35" opacity="0.3"/>
+                <circle cx="300" cy="230" r="25" fill="#4CAF50" opacity="0.3"/>
+                <rect x="180" y="280" width="140" height="80" rx="10" fill="#FF6B35" opacity="0.2"/>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Mama Meals?</h2>
+                <p>We connect you with the best local home cooks while supporting our community</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-coins"></i>
+                    </div>
+                    <h3>Affordable Meals</h3>
+                    <p>Enjoy delicious home-cooked meals at prices that won't break the bank. We keep costs low by working directly with local cooks.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Supports Local Cooks</h3>
+                    <p>Every order you place helps empower local home cooks and small food vendors in your community.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">
+                        <i class="fas fa-motorcycle"></i>
+                    </div>
+                    <h3>Fast Delivery</h3>
+                    <p>Our dedicated riders ensure your meal arrives hot and fresh, usually within 30-45 minutes of ordering.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>How It Works</h2>
+                <p>Getting your favorite local meals has never been easier</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Browse meals on the app</h3>
+                    <p>Discover authentic dishes from local cooks near you</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Local cooks prepare your order</h3>
+                    <p>Home cooks prepare your meal with fresh, local ingredients</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Rider delivers to your doorstep</h3>
+                    <p>Your meal arrives hot and fresh at your location</p>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 50px;">
+                <a href="#" class="btn">Get Started Today</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- For Cooks & Riders -->
+    <section class="cooks-riders" id="cooks-riders">
+        <div class="container">
+            <div class="section-title">
+                <h2>Join Our Community</h2>
+                <p>Become a cook or rider and earn while serving your community</p>
+            </div>
+            <div class="cooks-riders-grid">
+                <div class="role-card">
+                    <div class="role-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Share Your Cooking Skills</h3>
+                    <p>Earn money by sharing your delicious home-cooked meals with your community. Set your own schedule and menu.</p>
+                    <a href="#" class="btn">Sign Up as a Cook</a>
+                </div>
+                <div class="role-card green-border">
+                    <div class="role-icon">
+                        <i class="fas fa-bicycle"></i>
+                    </div>
+                    <h3>Deliver & Earn</h3>
+                    <p>Join our delivery team and earn flexible income by delivering meals to customers in your area.</p>
+                    <a href="#" class="btn btn-green">Join as a Rider</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Our Mission</h2>
+                    <p>We empower local food vendors and riders while making home-style meals accessible in Nairobi.</p>
+                    <p>Mama Meals was founded to create a sustainable ecosystem that supports local cooks, provides flexible earning opportunities for riders, and brings authentic Kenyan flavors to everyone's table.</p>
+                    <div class="about-icons">
+                        <div class="icon-box">
+                            <i class="fas fa-leaf"></i>
+                            <p>Local Ingredients</p>
+                        </div>
+                        <div class="icon-box">
+                            <i class="fas fa-heart"></i>
+                            <p>Community Focus</p>
+                        </div>
+                        <div class="icon-box">
+                            <i class="fas fa-hand-holding-usd"></i>
+                            <p>Economic Empowerment</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-illustration">
+                    <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" class="illustration">
+                        <circle cx="200" cy="200" r="150" fill="#4CAF50" opacity="0.1"/>
+                        <path d="M100 150 Q200 50 300 150 Q250 250 200 300 Q150 250 100 150" fill="#FF6B35" opacity="0.2"/>
+                        <circle cx="150" cy="170" r="25" fill="#FF6B35" opacity="0.3"/>
+                        <circle cx="250" cy="180" r="20" fill="#4CAF50" opacity="0.3"/>
+                        <rect x="130" y="230" width="140" height="60" rx="8" fill="#FF6B35" opacity="0.2"/>
+                        <circle cx="200" cy="200" r="40" fill="#4CAF50" opacity="0.1"/>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Have questions? Get in touch with our team</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get in Touch</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>hello@mamameals.co.ke</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+254 700 123 456</span>
+                        </div>
+                    </div>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="role">I am a</label>
+                            <select id="role" required>
+                                <option value="">Select your role</option>
+                                <option value="customer">Customer</option>
+                                <option value="cook">Cook</option>
+                                <option value="rider">Rider</option>
+                                <option value="partner">Partner</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">
+                    <i class="fas fa-utensils"></i>
+                    Mama Meals
+                </div>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms & Conditions</a>
+                    <a href="#">Careers</a>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Mama Meals. All rights reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainNav = document.getElementById('mainNav');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mainNav.classList.toggle('active');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    mainNav.classList.remove('active');
+                }
+            });
+        });
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if(!mainNav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
+                mainNav.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
+    
+  </body>
+  
+</html>
