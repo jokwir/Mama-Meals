@@ -933,6 +933,49 @@
                 mainNav.classList.remove('active');
             }
         });
+      <script>
+  // Slideshow functionality
+  let currentSlide = 1;
+  const totalSlides = 3;
+  const slideInterval = 6000; // Change every 6 seconds
+
+  function showSlide(slideNumber) {
+    // Update slides
+    document.querySelectorAll('.slide').forEach(slide => {
+      slide.classList.remove('active');
+    });
+    document.querySelector(`.slide[data-slide="${slideNumber}"]`).classList.add('active');
+    
+    // Update illustrations
+    document.querySelectorAll('.hero-illustration').forEach(ill => {
+      ill.classList.remove('active');
+    });
+    document.querySelector(`.hero-illustration-${slideNumber}`).classList.add('active');
+    
+    // Update indicators
+    document.querySelectorAll('.indicator').forEach(ind => {
+      ind.classList.remove('active');
+    });
+    document.querySelector(`.indicator[data-slide="${slideNumber}"]`).classList.add('active');
+    
+    currentSlide = slideNumber;
+  }
+
+  // Auto-rotate
+  setInterval(() => {
+    let next = currentSlide + 1;
+    if (next > totalSlides) next = 1;
+    showSlide(next);
+  }, slideInterval);
+
+  // Manual indicator click
+  document.querySelectorAll('.indicator').forEach(indicator => {
+    indicator.addEventListener('click', () => {
+      const slideNum = parseInt(indicator.getAttribute('data-slide'));
+      showSlide(slideNum);
+    });
+  });
+</script>
     </script>
 </body>
 </html>
