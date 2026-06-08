@@ -602,8 +602,8 @@
             <div class="stat-label">Avg. Delivery Time</div>
           </div>
           <div class="stat-box">
-            <div class="stat-value">Weekly</div>
-            <div class="stat-label">Payments</div>
+            <div class="stat-value">Every Friday</div>
+<div class="stat-label">Paid via M-Pesa</div>
           </div>
         </div>
       </div>
@@ -732,74 +732,74 @@
           <h2>Apply to Become a Rider</h2>
           <p>Complete this form and we'll contact you within 24 hours</p>
         </div>
-        <form id="riderApplicationForm">
-          <div class="form-row">
-            <div class="form-group">
-              <label for="fullName">Full Name *</label>
-              <input type="text" id="fullName" required>
-            </div>
-            <div class="form-group">
-              <label for="phone">Phone Number *</label>
-              <input type="tel" id="phone" placeholder="+254" required>
-            </div>
-          </div>
-          
-          <div class="form-row">
-            <div class="form-group">
-              <label for="email">Email Address</label>
-              <input type="email" id="email">
-            </div>
-            <div class="form-group">
-              <label for="location">Location *</label>
-              <select id="location" required>
-  <option value="">Select your area</option>
-  <option value="rongai">Rongai</option>
-  <option value="kasarani">Kasarani</option>
-  <option value="embakasi">Embakasi</option>
-  <option value="other">Other Nairobi area</option>
-</select>
-            </div>
-          </div>
-          
-          <div class="form-group">
-            <label for="bikeType">Bike Type *</label>
-            <select id="bikeType" required>
-              <option value="">Select your bike type</option>
-              <option value="bajaj">Bajaj Boxer</option>
-              <option value="boxer">Boxer BM</option>
-              <option value="tuktuk">Tuk-Tuk</option>
-              <option value="motorcycle">Other Motorcycle</option>
-            </select>
-          </div>
-          
-          <div class="form-group">
-            <label for="experience">Delivery Experience</label>
-              <select id="experience">
-                <option value="none">None</option>
-                <option value="1-6">1-6 months</option>
-                <option value="6-12">6-12 months</option>
-                <option value="12+">1+ years</option>
-              </select>
-          </div>
-          
-          <div class="form-group">
-            <label for="availability">When can you start? *</label>
-            <select id="availability" required>
-              <option value="">Select availability</option>
-              <option value="immediately">Immediately</option>
-              <option value="1-week">Within 1 week</option>
-              <option value="2-weeks">Within 2 weeks</option>
-              <option value="1-month">Within 1 month</option>
-            </select>
-          </div>
-          
-          <div class="form-group">
-            <label for="message">Additional Information</label>
-            <textarea id="message" placeholder="Tell us about yourself or ask questions..."></textarea>
-          </div>
-          
-          <button type="submit" class="btn btn-green submit-btn">Submit Application</button>
-        </form>
+        <form action="https://formspree.io/f/xeorkkvp" method="POST" id="riderApplicationForm">
+  <div class="form-row">
+    <div class="form-group">
+      <label for="fullName">Full Name *</label>
+      <input type="text" id="fullName" name="fullName" required>
+    </div>
+    <div class="form-group">
+      <label for="phone">Phone Number *</label>
+      <input type="tel" id="phone" name="phone" placeholder="+254" required>
+    </div>
+  </div>
+  
+  <div class="form-row">
+    <div class="form-group">
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email">
+    </div>
+    <div class="form-group">
+      <label for="location">Location *</label>
+      <select id="location" name="location" required>
+        <option value="">Select your area</option>
+        <option value="rongai">Rongai</option>
+        <option value="kasarani">Kasarani</option>
+        <option value="embakasi">Embakasi</option>
+        <option value="other">Other Nairobi area</option>
+      </select>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <label for="bikeType">Bike Type *</label>
+    <select id="bikeType" name="bikeType" required>
+      <option value="">Select your bike type</option>
+      <option value="bajaj">Bajaj Boxer</option>
+      <option value="boxer">Boxer BM</option>
+      <option value="tuktuk">Tuk-Tuk</option>
+      <option value="motorcycle">Other Motorcycle</option>
+    </select>
+  </div>
+  
+  <div class="form-group">
+    <label for="experience">Delivery Experience</label>
+    <select id="experience" name="experience">
+      <option value="none">None</option>
+      <option value="1-6">1-6 months</option>
+      <option value="6-12">6-12 months</option>
+      <option value="12+">1+ years</option>
+    </select>
+  </div>
+  
+  <div class="form-group">
+    <label for="availability">When can you start? *</label>
+    <select id="availability" name="availability" required>
+      <option value="">Select availability</option>
+      <option value="immediately">Immediately</option>
+      <option value="1-week">Within 1 week</option>
+      <option value="2-weeks">Within 2 weeks</option>
+      <option value="1-month">Within 1 month</option>
+    </select>
+  </div>
+  
+  <div class="form-group">
+    <label for="message">Additional Information</label>
+    <textarea id="message" name="message" placeholder="Tell us about yourself or ask questions..."></textarea>
+  </div>
+  
+  <button type="submit" class="btn btn-green submit-btn">Submit Application</button>
+</form>
       </div>
     </div>
   </section>
@@ -834,28 +834,7 @@
       mainNav.classList.toggle('active');
     });
     
-    // Form submission
-    const form = document.getElementById('riderApplicationForm');
-    if(form) {
-      form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form values
-        const fullName = document.getElementById('fullName').value;
-        const phone = document.getElementById('phone').value;
-        
-        // Simple validation
-        if(!fullName || !phone) {
-          alert('Please fill in all required fields');
-          return;
-        }
-        
-        // In a real app, you would send this to your server
-        alert(`Thank you ${fullName}! Your application has been submitted successfully. We'll contact you at ${phone} within 24 hours.`);
-        form.reset();
-      });
-    }
-    
+      
     // Close mobile menu when clicking outside
     document.addEventListener('click', (e) => {
       if(mainNav && !mainNav.contains(e.target) && !mobileMenuBtn.contains(e.target)) {
